@@ -40,3 +40,29 @@ snarkjs plonk verify zk-data/verification_key_plonk.json zk-data/public_plonk.js
 ```
 
 Replace `<your>.ptau` with your actual ptau filename (e.g. `powersOfTau28_hez_final_12.ptau`).
+
+
+// Actual example from zk-toolbox lib
+
+PHASE 1
+
+As mentioned in the introduction, zk-SNARKs require a trusted setup, which consists of two phases:
+
+Phase 1: Circuit-independent (global).
+Phase 2: Circuit-specific.
+We generate a Phase 1 setup supporting up to 
+2
+12
+ constraints, which is sufficient since 
+213
+∗
+2
+ constraints is roughly 
+2
+9
+
+```bash
+snarkjs powersoftau new bn128 12 zk-data/pot12_0000.ptau -v
+snarkjs powersoftau contribute zk-data/pot12_0000.ptau zk-data/pot12_0001.ptau --name="First contribution" -v
+snarkjs powersoftau prepare phase2 zk-data/pot12_0001.ptau zk-data/pot12_final.ptau -v
+```
