@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Build & cache
+dist/
+build/
+cache/
+artifacts/
+typechain-types/
+coverage/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Hardhat
+.openzeppelin/
+
+# Circom / ZKP
+*.ptau
+*.zkey
+*.wtns
+circuits/build/
+circuits/out/
+
+# Foundry
+lib/
+out/
+broadcast/
+cache/
+
+# Misc
+*.tsbuildinfo
+
+.circom-0.0.2.vsix
