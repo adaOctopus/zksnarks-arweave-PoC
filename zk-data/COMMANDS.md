@@ -80,3 +80,11 @@ And for the verifier
 ```bash
 snarkjs zkey export verificationkey zk-data/FirstCircuit.zkey zk-data/FirstCircuit.vkey
 ```
+
+IMPORTANT STEP
+ONCHAIN VERIFICATION
+Using snarkjs auto-generate verifier
+
+```bash
+snarkjs zkey export solidityverifier zk-data/OurFirstProof.zkey contracts/verifier.sol
+```

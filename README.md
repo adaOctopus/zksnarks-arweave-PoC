@@ -73,3 +73,10 @@ snarkjs groth16 prove circuit_final.zkey witness.wtns proof.json publicSignals.j
 snarkjs groth16 verify verification_key.json publicSignals.json proof.json
 ```
 
+## IMPORTANT STEP FOR ONCHAIN VERIFICATION
+#### Using snarkjs auto-generate verifier
+
+```bash
+snarkjs zkey export solidityverifier zk-data/OurFirstProof.zkey contracts/verifier.sol
+```
+
