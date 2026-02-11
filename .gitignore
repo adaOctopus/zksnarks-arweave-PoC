@@ -48,3 +48,10 @@ cache/
 *.tsbuildinfo
 
 .circom-0.0.2.vsix
+
+*.ptau
+*.zkey
+*.wtns
+*.vkey
+*.r1cs
+

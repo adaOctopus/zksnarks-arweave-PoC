@@ -66,3 +66,17 @@ snarkjs powersoftau new bn128 12 zk-data/pot12_0000.ptau -v
 snarkjs powersoftau contribute zk-data/pot12_0000.ptau zk-data/pot12_0001.ptau --name="First contribution" -v
 snarkjs powersoftau prepare phase2 zk-data/pot12_0001.ptau zk-data/pot12_final.ptau -v
 ```
+
+Now we do a minimal phase 2 setup (for testing purposes)
+
+```bash
+snarkjs groth16 setup zk-data/FirstCircuit.r1cs zk-data/pot12_final.ptau zk-data/FirstCircuit.zkey
+```
+Note here, the prover is two files, the compiled circuit .wasm file in zk-data and the zkey proving key
+
+And for the verifier
+
+
+```bash
+snarkjs zkey export verificationkey zk-data/FirstCircuit.zkey zk-data/FirstCircuit.vkey
+```
