@@ -10,5 +10,6 @@ template OurFirstProof() {
     hasher.inputs[0] <== secret;
     hash <== hasher.out;
 }
-
+// component main {public [in1,in2]}
+// in case we want to make some signals public
 component main = OurFirstProof();

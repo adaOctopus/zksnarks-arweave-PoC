@@ -3,6 +3,8 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { groth16 } from 'snarkjs';
 import { randomBytes } from '@noble/ciphers/utils.js';
+import { poseidon1 } from 'poseidon-lite';
+
 
 
 const wasmFile = join('zk-data', 'FirstCircuit_js', 'FirstCircuit.wasm');
@@ -13,9 +15,17 @@ async function main(secret: bigint) {
   // Circuit expects input object { secret: value }; value as decimal string for bigint
   const input = { secret: secret.toString() };
   const { proof, publicSignals } = await groth16.fullProve(input, wasmFile, zkeyFile);
+  // Hash the secret using Poseidon
+  const hash = poseidon1([secret]);
+  console.log('Public signals:', publicSignals);
   console.log('Proof:', proof);
+  console.assert(publicSignals[0] === hash.toString());
+  const isPoseidonHashValid = await groth16.verify(vKey, publicSignals, proof);
+  console.log('Hash:', hash);
   const ok = await groth16.verify(vKey, publicSignals, proof);
   console.log('Proof verified:', ok);
+  console.assert(isPoseidonHashValid);
+  console.log('Poseidon hash verified:', isPoseidonHashValid);
 }
 
 // finite field for the circuit
@@ -33,8 +43,10 @@ function randomBigInt32ModP(): bigint {
 }
 
 const secret = randomBigInt32ModP();
+
 console.log('Secret:', secret);
 
+// pass secret without Bigint for randomness, 
+// doublecheck poseidon1 hash
+main(BigInt('123')).catch(console.error);
 
-
-main(secret).catch(console.error);
