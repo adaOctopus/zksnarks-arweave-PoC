@@ -19,6 +19,6 @@
     "noUnusedParameters": true,
     "noEmit": false
   },
-  "include": ["scripts", "test", "*.ts", "contracts/**/*.ts"],
+  "include": ["scripts", "test", "*.ts", "*.d.ts", "contracts/**/*.ts"],
   "exclude": ["node_modules", "dist", "cache", "artifacts", "typechain-types"]
 }
