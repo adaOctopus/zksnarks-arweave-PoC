@@ -19,7 +19,8 @@
 
 7. The verifier uses the verifying key to cryptographically check that a valid witness exists without recomputing it.
 
-Commands flow.
+
+### Commands flow
 
 ## zk-SNARK (Groth16) Flow — Terminal Commands
 
