@@ -10,5 +10,9 @@ declare module 'snarkjs' {
       publicSignals: string[],
       proof: object
     ): Promise<boolean>;
+    exportSolidityCallData(
+      proof: object,
+      publicSignals: string[]
+    ): Promise<string>;
   };
 }

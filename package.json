@@ -10,7 +10,9 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
     "typecheck": "tsc --noEmit",
     "test": "hardhat test",
-    "compile": "hardhat compile",
+    "compile": "hardhat clean && hardhat compile",
+    "deploy:verifier": "hardhat run scripts/deploy-verifier.ts --network sepolia",
+    "verify:onchain": "hardhat run scripts/verify-onchain.ts --network sepolia",
     "clean": "hardhat clean && rm -rf dist"
   },
   "keywords": [],
@@ -33,7 +35,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "hardhat": "^3.1.7",
+    "hardhat": "^2.22.0",
     "prettier": "^3.8.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

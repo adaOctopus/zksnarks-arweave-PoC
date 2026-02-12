@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
+    "module": "ES2022",
     "lib": ["ES2022"],
     "strict": true,
     "esModuleInterop": true,
@@ -12,7 +12,7 @@
     "declarationMap": true,
     "outDir": "./dist",
     "rootDir": ".",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -20,5 +20,11 @@
     "noEmit": false
   },
   "include": ["scripts", "test", "*.ts", "*.d.ts", "contracts/**/*.ts"],
-  "exclude": ["node_modules", "dist", "cache", "artifacts", "typechain-types"]
+  "exclude": ["node_modules", "dist", "cache", "artifacts", "typechain-types"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node"
+    }
+  }
 }
