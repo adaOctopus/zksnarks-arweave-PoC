@@ -128,6 +128,11 @@ The **Aᵢ** vectors look like this:
 ---
 
 ## **11. Slicing vertically: from vectors to polynomials**
+---
+- ![R1CS to QAP](conversionQAP.png)
+
+
+---
 
 That’s how we get all the matrices. To **compute the polynomials**, we slice those 4 vectors **vertically**. So we have **6 polynomials** (because we have 6 entries in each Aᵢ vector). We go index by index and ask:
 
@@ -150,6 +155,8 @@ That’s **3 groups of 6 polynomials** each.
 
 ## **12. Compressing to one polynomial per group**
 
+- ![Circom to proof flow](conversionQAP3.png)
+
 To avoid making the verifier recompute everything, we **compress** down to **1 polynomial per group**.
 
 How? We multiply each entry of the witness **w = [1, x, c4, c1, c2, c3]** with the corresponding **Aᵢ(x)** polynomial and add them together. So we get **one** polynomial **A(x)**, **one** **B(x)**, and **one** **C(x)**.
@@ -168,16 +175,6 @@ and we need to check that when we divide the **final polynomial from the left** 
 
 That is it. Very top level. GREAT.
 
----
-
-## **Diagrams**
-
-*(Add your two flow/diagram images here when you have them in the `ideation` folder, e.g. one for the overall Circom → proof flow and one for R1CS → QAP.)*
-
-- ![Circom to proof flow](conversionQAP3.png)
-- ![R1CS to QAP](conversionQAP.png)
-
----
 
 ## **Further reading**
 
