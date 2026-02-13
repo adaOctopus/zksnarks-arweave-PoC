@@ -174,8 +174,8 @@ That is it. Very top level. GREAT.
 
 *(Add your two flow/diagram images here when you have them in the `ideation` folder, e.g. one for the overall Circom → proof flow and one for R1CS → QAP.)*
 
-- ![Circom to proof flow](circom-to-proof-flow.png)
-- ![R1CS to QAP](r1cs-to-qap.png)
+- ![Circom to proof flow](conversionQAP3.png)
+- ![R1CS to QAP](conversionQAP.png)
 
 ---
 
