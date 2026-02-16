@@ -162,3 +162,11 @@ The script will print:
 
 So: **deploy first** (Step 1), set `VERIFIER_ADDRESS`, then you can run **Step 2 + Step 3** whenever you want to check a proof on Sepolia. The verify script uses your signer to make the RPC call; `verifyProof` is view-only so it does not send a transaction or spend gas.
 
+For searching the circuit constraints in R1CS format, like a * b = c
+
+run the following once you have compiled and generated --r1cs --wasm --sym files
+in zk-data
+
+```bash
+snarkjs r1cs print zk-data/BalanceProof.r1cs zk-data/BalanceProof.sym
+```
